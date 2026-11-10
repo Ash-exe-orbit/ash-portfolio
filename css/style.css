@@ -1050,4 +1050,148 @@ footer {
     flex-wrap: wrap;
   }
 }
+/* =================================
+   ASH — SOCIAL LINKS UPGRADE
+================================= */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 55px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 22px;
+
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  transition: 
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  background: rgba(155, 140, 255, 0.09);
+
+  border-color: var(--accent);
+
+  transform: translateY(-4px);
+}
+
+.social-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .social-links {
+    gap: 12px;
+    margin-top: 40px;
+  }
+
+  .social-links a {
+    padding: 12px 17px;
+    font-size: 12px;
+  }
+}
+/* =================================
+   ASH — NAVIGATION POLISH
+================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(16, 19, 25, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color 0.3s ease;
+}
+
+.nav-links a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.logo {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.nav-cta {
+  transition: 
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.nav-cta:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #101319;
+}
+
+/* MOBILE NAVIGATION */
+
+@media (max-width: 650px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 17px 6%;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .nav-links a::after {
+    bottom: -4px;
+  }
+}
 
