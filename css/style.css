@@ -842,34 +842,46 @@ footer {
 
 .value-card span {
   color: var(--accent);
-  font-size: 12px;
-}
-
-.value-card h3 {
-  font-size: 15px;
-  margin: 12px 0 5px;
-}
-
-.value-card p {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-@media (max-width: 800px) {
-  .about-section {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-section {
-    padding: 80px 7%;
-  }
 
   .about-values {
     grid-template-columns: 1fr;
   }
+}
+
+/* About value card interactions */
+
+.value-card {
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+    .value-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+        background: var(--surface-light);
+        box-shadow: 0 10px 30px rgba(155, 140, 255, 0.08);
+    }
+}
+
+/* Mobile touch interaction */
+@media (hover: none) and (pointer: coarse) {
+    .value-card:active {
+        transform: scale(0.98);
+        border-color: var(--accent);
+        background: var(--surface-light);
+        box-shadow: 0 5px 20px rgba(155, 140, 255, 0.08);
+    }
+}
+
+/* Keyboard accessibility */
+.value-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 /* ================================
    ASH — TECHNOLOGY STACK
@@ -1193,5 +1205,100 @@ footer {
   .nav-links a::after {
     bottom: -4px;
   }
+}
+/* Zuvori project overview */
+
+.project-about {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.project-about h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+}
+
+.project-about p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.project-about p:last-child {
+    margin-bottom: 0;
+}
+/* Project development status */
+
+.project-status {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+    margin-bottom: 22px;
+    font-size: 9px;
+    letter-spacing: 0.09em;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #79c99a;
+    box-shadow: 0 0 9px rgba(121, 201, 154, 0.45);
+}
+
+.status-divider {
+    color: var(--accent);
+}
+/* Mobile responsiveness: About section */
+
+@media (max-width: 768px) {
+    .about-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        gap: 32px;
+        padding-left: 24px;
+        padding-right: 24px;
+        box-sizing: border-box;
+    }
+
+    .about-heading,
+    .about-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .about-heading h2 {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+    }
+
+    .about-content p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .about-values {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .value-card {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
 }
 
